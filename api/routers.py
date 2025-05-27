@@ -61,6 +61,12 @@ async def view_create_groupslearns(
     return create_groupslearns
 
 
+@router_driving_school.get('/groups-learns')
+async def view_get_list_grouplearn():
+    get_grouplearn = await crud.get_groupslearns_list()
+    return get_grouplearn
+
+
 @router_driving_school.get('/groups-learns/tg_id/{tg_id}')
 async def view_get_grouplearn_by_tg_id(
         tg_id: int
@@ -83,6 +89,12 @@ async def view_create_groups(
         groups_schames=groups
     )
     return create_groups
+
+
+@router_driving_school.get('/groups')
+async def view_get_groups_list():
+    get_groups_list = await crud.get_groups_list()
+    return get_groups_list
 
 
 @router_driving_school.get('/groups/tg_id/{tg_id}')

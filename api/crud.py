@@ -83,6 +83,14 @@ async def create_groupslearns_db(
         return await commit_to_db(session, db)
 
 
+async def get_groupslearns_list() -> DrivingSchool_GroupLearns:
+    async with create_session() as session:
+        query = select(
+            DrivingSchool_GroupLearns
+        )
+        return await get_all_data_by_query(session, query)
+        
+
 async def get_groupslearns_by_tgiduser(
         tg_id: int
 ) -> DrivingSchool_GroupLearns:
@@ -104,6 +112,14 @@ async def create_groups_db(
             id_grouplearn = groups_schames.id_grouplearn
         )
         return await commit_to_db(session, db)
+
+
+async def get_groups_list() -> DrivingSchool_Groups:
+    async with create_session() as session:
+        query = select(
+            DrivingSchool_Groups
+        )
+        return await get_all_data_by_query(session, query)
 
 
 async def get_groups_by_tg_id(tg_id: int) -> DrivingSchool_Groups:
