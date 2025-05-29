@@ -20,11 +20,7 @@ async def lifespan(app: FastAPI):
 api = FastAPI(lifespan=lifespan)
 
 api.include_router(
-    routers.router_driving_school
-)
-
-api.include_router(
-    routers.router_academy
+    routers.router_driving_support
 )
 
 
@@ -34,5 +30,5 @@ if __name__ == '__main__':
         "main:api", 
         host=settings.HOST, 
         port=settings.PORT,
-        reload=settings.RELOAD,
+        reload=True,
     )
