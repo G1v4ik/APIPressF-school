@@ -7,7 +7,7 @@ from os import getenv
 
 from api import routers
 from api.config import get_settings
-from api.database import create_tables
+from api.database import create_tables, delete_tables
 
 load_dotenv()
 
@@ -15,6 +15,7 @@ load_dotenv()
 async def lifespan(app: FastAPI):
     await create_tables()
     yield
+    # await delete_tables()
 
 
 api = FastAPI(lifespan=lifespan)

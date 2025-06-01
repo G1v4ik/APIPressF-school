@@ -22,5 +22,7 @@ async def send_new_support_message(data: schames.DS_support_new_message):
 
 
 @router_driving_support.patch('/support_messages')
-async def response_support_message():
-    ...
+async def response_support_message(data: schames.DS_response_message):
+    new_data = await crud.response_support_message(data)
+    return new_data
+    

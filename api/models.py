@@ -3,7 +3,8 @@ from sqlalchemy import (
     String,  
     MetaData, 
     Boolean,
-    DateTime)
+    DateTime,
+    BigInteger)
 from sqlalchemy.orm import (
     Mapped, 
     mapped_column, 
@@ -23,7 +24,8 @@ class SupportMessages(BaseModel):
         primary_key=True, 
         autoincrement=True
     )
+    telegram_id: Mapped[int] = mapped_column(BigInteger)
     username: Mapped[str] = mapped_column(String)
     message: Mapped[str] = mapped_column(Text)
-    is_new: Mapped[bool] = mapped_column(Boolean)
+    is_new: Mapped[bool] = mapped_column(Boolean, onupdate=True)
     create_at: Mapped[datetime] = mapped_column(DateTime)

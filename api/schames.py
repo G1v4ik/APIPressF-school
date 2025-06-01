@@ -6,6 +6,7 @@ from datetime import datetime
 
 
 class DS_support_new_message(BaseModel):
+    telegram_id: int
     username: str
     message: str
     is_new: bool = Field(default=True)
@@ -13,5 +14,5 @@ class DS_support_new_message(BaseModel):
 
 
 class DS_response_message(BaseModel):
-    username: str
+    id_message: int
     is_new: bool = False
